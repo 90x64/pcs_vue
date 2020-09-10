@@ -32,17 +32,16 @@
       }
     },
     created() {
-      this.queryTreeData()
+      //this.queryTreeData()
     },
     watch: {
       pid2: {
         immediate: true,
         handler(projectId) {
-          console.log(this.pid2);
           if (this.temp == undefined) {
             this.temp = projectId
             this.dataSource = []
-            this.handleSearch(this.temp)
+            this.queryTreeData(this.temp)
           }
         }
       }
@@ -56,11 +55,7 @@
       },
 
       handleSearch(value) {
-        if (value) {
-          this.commonRequestThen(searchModelByKeywords({ keyWord: value }))
-        } else {
-          this.queryTreeData()
-        }
+        this.queryTreeData(value)
       },
       handleTreeSelect(selectedKeys, event) {
         if (selectedKeys.length > 0 && this.selectedKeys[0] !== selectedKeys[0]) {

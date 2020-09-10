@@ -79,7 +79,6 @@
         ],
         url: {
           list: "/projectRecord/list"
-
         }
       }
     },

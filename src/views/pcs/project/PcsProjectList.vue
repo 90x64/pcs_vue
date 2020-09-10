@@ -101,22 +101,22 @@
             </a-menu>
           </a-dropdown>
 
-              <j-modal
-                :visible.sync="modal.visible"
-                :width="1000"
-                :title="modal.title"
-                :fullscreen.sync="modal.fullscreen"
-                :switchFullscreen="modal.switchFullscreen"
-              >
+          <a-modal
+            v-model="modalVisible"
+            destroyOnClose
+            maskClosable
+            title=""
+            width="1200px"
+            :footer="null"
+            centered
+            @ok="() => (modalVisible = false)"
+          >
+            <template>
+              <ProjectDetail :pid = "selectID"  v-model="projectDetail"></ProjectDetail>
+            </template>
+          </a-modal>
 
-              <template>
-                  <ProjectDetail :pid = "record.id"  v-model="projectDetail"></ProjectDetail>
-              </template>
-            </j-modal>
         </span>
-
-
-
       </a-table>
     </div>
 
@@ -143,6 +143,8 @@
       return {
         description: '项目信息管理管理页面',
         projectDetail: "",
+        selectID: '',
+        modalVisible: false,
         // 表头
         columns: [
           {
@@ -254,10 +256,6 @@
         },
         dictOptions:{},
         modal: {
-          title: '工程数据记录',
-          visible: false,
-          fullscreen: false,
-          switchFullscreen: true,
           pid: ''
         }
       }
@@ -273,8 +271,8 @@
       initDictConfig(){
       },
       showDetail(pid) {
-        this.modal.visible = true
-        this.modal.pid = pid
+        this.modalVisible = true
+        this.selectID = pid
       }
     }
   }

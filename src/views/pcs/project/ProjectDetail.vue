@@ -1,7 +1,7 @@
 <template>
   <a-row type="flex" :gutter="16">
     <a-col :md="5" :sm="24">
-      <address-list-left :pid2="this.pid" v-model="projectDetail"/>
+      <address-list-left :pid2="pid" v-model="projectDetail"/>
     </a-col>
     <a-col :md="24-5" :sm="24">
       <address-list-right v-model="projectDetail"/>
@@ -24,7 +24,6 @@
         pid2: ''
       }
     },
-
     methods: {}
   }
 </script>
