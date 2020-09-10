@@ -2,133 +2,78 @@
   <div class="page-header-index-wide">
     <a-row :gutter="24">
       <a-col :sm="24" :md="12" :xl="6" :style="{ marginBottom: '24px' }">
-        <chart-card :loading="loading" title="总销售额" total="￥126,560">
-          <a-tooltip title="指标说明" slot="action">
+        <chart-card :loading="loading" title="数据采集点" total="38">
+          <a-tooltip title="数据采集点" slot="action">
             <a-icon type="info-circle-o" />
           </a-tooltip>
           <div>
             <trend flag="up" style="margin-right: 16px;">
               <span slot="term">周同比</span>
-              12%
+              1%
             </trend>
             <trend flag="down">
               <span slot="term">日同比</span>
-              11%
+              1%
             </trend>
           </div>
-          <template slot="footer">日均销售额<span>￥ 234.56</span></template>
+          <template slot="footer">日均采集点<span> 6</span></template>
         </chart-card>
       </a-col>
       <a-col :sm="24" :md="12" :xl="6" :style="{ marginBottom: '24px' }">
-        <chart-card :loading="loading" title="订单量" :total="8846 | NumberFormat">
-          <a-tooltip title="指标说明" slot="action">
-            <a-icon type="info-circle-o" />
-          </a-tooltip>
-          <div>
-            <mini-area />
-          </div>
-          <template slot="footer">日订单量<span> {{ '1234' | NumberFormat }}</span></template>
-        </chart-card>
-      </a-col>
-      <a-col :sm="24" :md="12" :xl="6" :style="{ marginBottom: '24px' }">
-        <chart-card :loading="loading" title="支付笔数" :total="6560 | NumberFormat">
-          <a-tooltip title="指标说明" slot="action">
+        <chart-card :loading="loading" title="工程文件" :total="33 | NumberFormat">
+          <a-tooltip title="工程文件" slot="action">
             <a-icon type="info-circle-o" />
           </a-tooltip>
           <div>
             <mini-bar :height="40" />
           </div>
-          <template slot="footer">转化率 <span>60%</span></template>
+          <template slot="footer">日均上传量 <span> 7</span></template>
         </chart-card>
       </a-col>
       <a-col :sm="24" :md="12" :xl="6" :style="{ marginBottom: '24px' }">
-        <chart-card :loading="loading" title="运营活动效果" total="78%">
-          <a-tooltip title="指标说明" slot="action">
+        <chart-card :loading="loading" title="SCADA点" total="24">
+          <a-tooltip title="SCADA点" slot="action">
             <a-icon type="info-circle-o" />
           </a-tooltip>
           <div>
-            <mini-progress color="rgb(19, 194, 194)" :target="80" :percentage="78" :height="8" />
+            <trend flag="up" style="margin-right: 16px;">
+              <span slot="term">周同比</span>
+              1%
+            </trend>
+            <trend flag="down">
+              <span slot="term">日同比</span>
+              1%
+            </trend>
           </div>
-          <template slot="footer">
-            <trend flag="down" style="margin-right: 16px;">
-              <span slot="term">同周比</span>
-              12%
-            </trend>
-            <trend flag="up">
-              <span slot="term">日环比</span>
-              80%
-            </trend>
-          </template>
+          <template slot="footer">日均采集点<span> 11</span></template>
         </chart-card>
       </a-col>
-    </a-row>
-
-    <a-card :loading="loading" :bordered="false" :body-style="{padding: '0'}">
-      <div class="salesCard">
-        <a-tabs default-active-key="1" size="large" :tab-bar-style="{marginBottom: '24px', paddingLeft: '16px'}">
-          <div class="extra-wrapper" slot="tabBarExtraContent">
-            <div class="extra-item">
-              <a>今日</a>
-              <a>本周</a>
-              <a>本月</a>
-              <a>本年</a>
-            </div>
-            <a-range-picker :style="{width: '256px'}" />
+      <a-col :sm="24" :md="12" :xl="6" :style="{ marginBottom: '24px' }">
+        <chart-card :loading="loading" title="工程画面" :total="7 | NumberFormat">
+          <a-tooltip title="工程画面" slot="action">
+            <a-icon type="info-circle-o" />
+          </a-tooltip>
+          <div>
+            <mini-area />
           </div>
-          <a-tab-pane loading="true" tab="销售额" key="1">
-            <a-row>
-              <a-col :xl="16" :lg="12" :md="12" :sm="24" :xs="24">
-                <bar title="销售额排行" :dataSource="barData"/>
-              </a-col>
-              <a-col :xl="8" :lg="12" :md="12" :sm="24" :xs="24">
-                <rank-list title="门店销售排行榜" :list="rankList"/>
-              </a-col>
-            </a-row>
-          </a-tab-pane>
-          <a-tab-pane tab="销售趋势" key="2">
-            <a-row>
-              <a-col :xl="16" :lg="12" :md="12" :sm="24" :xs="24">
-                <bar title="销售额趋势" :dataSource="barData"/>
-              </a-col>
-              <a-col :xl="8" :lg="12" :md="12" :sm="24" :xs="24">
-                <rank-list title="门店销售排行榜" :list="rankList"/>
-              </a-col>
-            </a-row>
-          </a-tab-pane>
-        </a-tabs>
-      </div>
-    </a-card>
+          <template slot="footer">日工程画面<span> {{ '2' | NumberFormat }}</span></template>
+        </chart-card>
+      </a-col>
+
+    </a-row>
 
     <a-row>
       <a-col :span="24">
-        <a-card :loading="loading" :bordered="false" title="最近一周访问量统计" :style="{ marginTop: '24px' }">
-          <a-row>
-            <a-col :span="6">
-              <head-info title="今日IP" :content="loginfo.todayIp"></head-info>
-            </a-col>
-            <a-col :span="2">
-              <a-spin class='circle-cust'>
-                <a-icon slot="indicator" type="environment" style="font-size: 24px"  />
-              </a-spin>
-            </a-col>
-            <a-col :span="6">
-              <head-info title="今日访问" :content="loginfo.todayVisitCount"></head-info>
-            </a-col>
-            <a-col :span="2">
-              <a-spin class='circle-cust'>
-                <a-icon slot="indicator" type="team" style="font-size: 24px"  />
-              </a-spin>
-            </a-col>
-            <a-col :span="6">
-              <head-info title="总访问量" :content="loginfo.totalVisitCount"></head-info>
-            </a-col>
-            <a-col :span="2">
-              <a-spin class='circle-cust'>
-                <a-icon slot="indicator" type="rise" style="font-size: 24px"  />
-              </a-spin>
-            </a-col>
-          </a-row>
-          <line-chart-multid :fields="visitFields" :dataSource="visitInfo"></line-chart-multid>
+        <a-card :loading="loading" :bordered="false" title="工程分布" :style="{ marginTop: '24px' }">
+          <bar title="" :dataSource="project" :height="200"/>
+        </a-card>
+      </a-col>
+    </a-row>
+
+    <a-row>
+      <a-col :span="24">
+        <a-card :loading="loading" :bordered="false" title="版本统计" :style="{ marginTop: '24px' }">
+          <line-chart-multid :fields="visitFields" :dataSource="version"></line-chart-multid>
         </a-card>
       </a-col>
     </a-row>
@@ -146,6 +91,7 @@
   import Bar from '@/components/chart/Bar'
   import LineChartMultid from '@/components/chart/LineChartMultid'
   import HeadInfo from '@/components/tools/HeadInfo.vue'
+  import Radar from '@/components/chart/Radar'
 
   import Trend from '@/components/Trend'
   import { getLoginfo,getVisitInfo } from '@/api/api'
@@ -177,7 +123,8 @@
       Bar,
       Trend,
       LineChartMultid,
-      HeadInfo
+      HeadInfo,
+      Radar
     },
     data() {
       return {
@@ -185,8 +132,37 @@
         center: null,
         rankList,
         barData,
+        project: [
+          {
+            "x": "工程A",
+            "y": 10
+          },
+          {
+            "x": "工程B",
+            "y": 28
+          },
+          {
+            "x": "工程C",
+            "y": 75
+          }
+        ],
+        version: [
+                    { "type": "2019年9月", "version": 1 },
+                    { "type": "2019年10月", "version": 3 },
+                    { "type": "2019年11月", "version": 6 },
+                    { "type": "2019年12月", "version": 7 },
+                    { "type": "2020年1月", "version": 6 },
+                    { "type": "2020年2月", "version": 9 },
+                    { "type": "2020年3月", "version": 14 },
+                    { "type": "2020年4月", "version": 18 },
+                    { "type": "2020年5月", "version": 21 },
+                    { "type": "2020年6月", "version": 25 },
+                    { "type": "2020年7月", "version": 26 },
+                    { "type": "2020年8月", "version": 23 },
+                    { "type": "2020年9月", "version": 18 }
+                  ],
         loginfo:{},
-        visitFields:['ip','visit'],
+        visitFields:["version"],
         visitInfo:[],
         indicator: <a-icon type="loading" style="font-size: 24px" spin />
       }
