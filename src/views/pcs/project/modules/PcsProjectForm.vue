@@ -58,7 +58,6 @@
               <a-input v-decorator="['station']" placeholder="请输入站控"></a-input>
             </a-form-item>
           </a-col>
-          <!--
           <a-col :span="12">
             <a-form-item label="ip1" :labelCol="labelCol" :wrapperCol="wrapperCol">
               <a-input v-decorator="['ip1']" placeholder="请输入ip1"></a-input>
@@ -79,7 +78,6 @@
               <a-input v-decorator="['ip4']" placeholder="请输入ip4"></a-input>
             </a-form-item>
           </a-col>
-          -->
           <a-col v-if="showFlowSubmitButton" :span="24" style="text-align: center">
             <a-button @click="submitForm">提 交</a-button>
           </a-col>

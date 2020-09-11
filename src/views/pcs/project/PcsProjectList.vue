@@ -218,7 +218,6 @@
             align:"center",
             dataIndex: 'station'
           },
-          /*
           {
             title:'ip1',
             align:"center",
@@ -238,7 +237,7 @@
             title:'ip4',
             align:"center",
             dataIndex: 'ip4'
-          }, */
+          },
           {
             title: '操作',
             dataIndex: 'action',
