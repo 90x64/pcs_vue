@@ -178,7 +178,7 @@
           {
             title:'项目经理',
             align:"center",
-            dataIndex: 'projectManager_dictText'
+            dataIndex: 'projectManager'
           },
           {
             title:'工程承建单位',
