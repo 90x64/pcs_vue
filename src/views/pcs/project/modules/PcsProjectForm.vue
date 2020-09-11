@@ -19,8 +19,13 @@
             </a-form-item>
           </a-col>
           <a-col :span="12">
+            <!--
             <a-form-item label="项目经理" :labelCol="labelCol" :wrapperCol="wrapperCol">
               <j-search-select-tag v-decorator="['projectManager']" dict="sys_user left join sys_user_role ON sys_user.id = sys_user_role.user_id left join sys_role on sys_user_role.role_id = sys_role.id where sys_user.del_flag = 0 and sys_user.status = 1 and sys_role.role_code = 'PCS',sys_user.username,sys_user.username" />
+            </a-form-item>
+            -->
+            <a-form-item label="项目经理" :labelCol="labelCol" :wrapperCol="wrapperCol">
+              <a-input v-decorator="['projectManager']" placeholder="请输入项目经理"></a-input>
             </a-form-item>
           </a-col>
           <a-col :span="12">
